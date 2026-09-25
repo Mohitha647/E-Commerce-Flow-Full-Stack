@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CommerceFlow</title>
+<link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">CommerceFlow</div>
+    <div class="search">
+      <input id="search-input" type="text" placeholder="Search products..." />
+    </div>
+    <nav class="account">
+      <span id="auth-status">Not signed in</span>
+      <button id="login-btn">Sign in</button>
+      <button id="orders-btn">Orders</button>
+      <button id="cart-btn">Cart (<span id="cart-count">0</span>)</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="category-bar" class="category-bar"></section>
+
+    <section id="products-view">
+      <h2>Products</h2>
+      <div id="products-grid" class="grid"></div>
+    </section>
+
+    <section id="orders-view" class="hidden">
+      <h2>Your Orders</h2>
+      <div id="orders-list" class="orders-list"></div>
+    </section>
+
+    <section id="recs-view" class="hidden">
+      <h2 id="recs-title">Recommended for you</h2>
+      <div id="recs-grid" class="grid"></div>
+    </section>
+  </main>
+
+  <!-- Product details modal -->
+  <div id="product-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="product-modal-title">
+    <div class="modal-box product-modal-box">
+      <div class="product-modal-header">
+        <h3 id="product-modal-title">Product Details</h3>
+        <button id="close-product" class="icon-btn" aria-label="Close product details">&times;</button>
+      </div>
+      <div id="product-details-content" class="product-details-content">
+        <p>Loading product details...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart drawer -->
+  <aside id="cart-drawer" class="drawer hidden">
+    <div class="drawer-header">
+      <h3>Your Cart</h3>
+      <button id="close-cart">&times;</button>
+    </div>
+    <div id="cart-items"></div>
+    <div class="cart-footer">
+      <div>Subtotal: <strong id="cart-subtotal">₹0.00</strong></div>
+      <button id="checkout-btn">Checkout</button>
+      <p id="checkout-message"></p>
+    </div>
+  </aside>
+
+  <!-- Login modal -->
+  <div id="login-modal" class="modal hidden">
+    <div class="modal-box">
+      <h3 id="login-title">Sign in</h3>
+      <input id="login-email" type="email" placeholder="Email" value="demo@commerceflow.dev" />
+      <input id="login-password" type="password" placeholder="Password" value="demopassword123" />
+      <div class="modal-actions">
+        <button id="do-login">Sign in</button>
+        <button id="do-register">Register instead</button>
+        <button id="close-login">Cancel</button>
+      </div>
+      <p id="login-message"></p>
+      <p class="hint">Seeded demo account: demo@commerceflow.dev / demopassword123</p>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
